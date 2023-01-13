@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.aniCard{
+  padding: 1rem;
+}
+
+#root{
+  background-color: bisque;
+}
