@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Emilys+Candy&family=Rubik+Bubbles&display=swap');
+
 .App {
   text-align: center;
 }
@@ -43,10 +45,25 @@ main{
   justify-content: space-between;
 }
 
+header{
+  text-align: center;
+}
+
+h1{
+  font-family: 'Rubik Bubbles';
+  display: inline-block;
+  padding: 1rem;
+  background-image: linear-gradient(to left, indigo, green, blue,red);
+   -webkit-background-clip: text;
+   -moz-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
 .aniCard{
   padding: 1rem;
 }
 
 #root{
-  background-color: bisque;
+  background-image: linear-gradient(to bottom right, #FEC8A7 , #FCECA5, #B5EECB, #CBC7FC, #B5EECB, #FCECA5, #FEC8A7);
 }
