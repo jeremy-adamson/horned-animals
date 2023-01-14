@@ -1,6 +1,7 @@
 import React from "react";
 import Card from 'react-bootstrap/Card'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './HornedBeast.css';
 
 
 class HornedBeast extends React.Component{
@@ -17,10 +18,14 @@ class HornedBeast extends React.Component{
         })
     };
 
+    fillAndShowModal = () =>{
+        this.props.handleShowModal(this.props.title, this.props.img_Url, this.props.description);
+    }
+
     render(){
         return(
-            <div class = "aniCard">
-            <Card style={{ width: '18rem' }}>
+            <div className = "aniCard">
+            <Card style={{ width: '18rem' }} onClick={this.fillAndShowModal}>
                 <Card.Title as="h2">{this.props.title}</Card.Title>
                 <Card.Img src={this.props.img_Url}
                     alt={this.props.title}
