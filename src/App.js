@@ -5,6 +5,7 @@ import Footer from "./Footer";
 import Modal from "react-bootstrap/Modal"
 import HornedBeastInfo from "./data.json"
 import './App.css';
+import { Form } from 'react-bootstrap';
 
 class App extends React.Component{
   constructor(props){
@@ -13,7 +14,8 @@ class App extends React.Component{
       title: "",
       img_Url: "",
       description: "",
-      showModal: false
+      showModal: false,
+      HornedBeastInfo: HornedBeastInfo
     }
   }
 
@@ -32,12 +34,41 @@ class App extends React.Component{
     })
   }
 
+  processHornFilter = (event) => {
+    event.preventDefault();
+    const hornNumber = event.target.value;
+    let interimData;
+
+    if (hornNumber === ""){
+      interimData = HornedBeastInfo;
+    }
+    else{
+      interimData = HornedBeastInfo.filter(beast => parseInt(beast.horns) === parseInt(hornNumber));
+    }
+
+    this.setState({
+      HornedBeastInfo: interimData
+    })
+  }
+
   render(){
     return(
       <>
         <Header />
+        <Form>
+          <Form.Group>
+            <Form.Select onChange={this.processHornFilter}>
+              <option value={""}>All Horned Beasts</option>
+              <option value={1}>One Horn</option>
+              <option value={2}>Two Horns</option>
+              <option value={3}>Three Horns</option>
+              <option value={100}>One Hundred Horns</option>
+            </Form.Select>
+          </Form.Group>
+        </Form>
+
         <Main 
-          hornedBeastInfo = {HornedBeastInfo}
+          hornedBeastInfo = {this.state.HornedBeastInfo}
           handleShowModal = {this.handleShowModal}
         />
         <Footer />
